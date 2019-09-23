@@ -37,3 +37,10 @@ and replace “pick” on the second and subsequent commits with “squash” or
 In this example, <after-this-commit> is either the SHA1 hash or the relative location from the HEAD of the current branch from which commits are analyzed for the rebase command. 
 
 For example, if the user wishes to view 5 commits from the current HEAD in the past the command is git rebase -I HEAD~5 
+
+
+## checkout only file/directory from branch
+
+```
+git checkout feature-branch -- src/js/some-file.js
+```
