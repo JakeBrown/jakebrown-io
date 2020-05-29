@@ -1,6 +1,6 @@
 ---
 title: "Vim and CoC"
-date: "2020-29-06"
+date: "2020-06-29"
 draft: false
 path: "/blog/vim"
 ---

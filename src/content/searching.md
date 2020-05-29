@@ -1,6 +1,6 @@
 ---
 title: "Searching via terminal"
-date: "2019-06-06"
+date: "2019-06-10"
 draft: false
 path: "/blog/searching"
 ---

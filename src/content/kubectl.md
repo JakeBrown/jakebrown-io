@@ -1,6 +1,6 @@
 ---
 title: "Kubectl"
-date: "2019-06-06"
+date: "2019-06-10"
 draft: false
 path: "/blog/kubectl"
 ---
