@@ -42,7 +42,9 @@ const IndexPage = ({ data }) => {
       <SEO title="Blog" />
       <Content>
         <h1>Blog</h1>
-        <p>This blog is not really intended to follow a particular narrative. Mostly, it's my own personal code snippets and things to remember. Other developers might find some of it useful.</p>
+        <p>This blog is not really intended to follow a particular narrative.
+        Mostly, it's my own personal code snippets and things to remember.
+        Other developers might find some of it useful.</p>
         {data.allMarkdownRemark.edges.map(({ node }) => (
           <div key={node.id}>
             <Link
