@@ -17,13 +17,10 @@ CoC comes pretty close to providing a nice IDE-like experience in Vim, so maybe 
 
 ## Handy commands for COC
 
-```
-
-gd - go to definition
-ctrl-o - return (:help jumplist)
-:CocConfig - will bring up the coc json config file
-:CocList snippets - list snippets for current file type
-```
+- gd - go to definition
+- ctrl-o - return (:help jumplist)
+- :CocConfig - will bring up the coc json config file
+- :CocList snippets - list snippets for current file type
 
 
 ## Getting python linting working:
