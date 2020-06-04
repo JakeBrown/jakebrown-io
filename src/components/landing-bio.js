@@ -41,7 +41,7 @@ const LandingBio = () => (
       <OuterContainer>
         <Container>
           <NameHeader>{data.site.siteMetadata.title}</NameHeader>
-          <Description>Developer. Co-founder of <a href="https://eyespacelenses.com">EyeSpace</a>.</Description>
+          <Description>Developer. <a href="https://eyespacelenses.com">EyeSpace&trade;</a> co-founder and CTO.</Description>
         </Container>
       </OuterContainer>
     )}
