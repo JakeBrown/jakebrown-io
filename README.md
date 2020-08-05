@@ -1,59 +1,47 @@
-# Next + Netlify Markdown Blog Starter
+# sapper-blog-template
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/8979c7b5-18bf-4837-9861-2d9a5844b19b/deploy-status)](https://app.netlify.com/sites/next-netlify-blog-starter/deploys)
+A starter template for building markdown-powered blogs with [Sapper](https://github.com/sveltejs/sapper) and [Svelte](https://github.com/sveltejs/svelte).
 
-This is a lightweight Next.js (v9.5+) Markdown Blog, configured so you can one-click install a blog and deploy it to [Netlify](https://url.netlify.com/r1j6ybSYU)!
+### 👉 [Demo](https://sapper-blog-template.netlify.com/)
 
-Get started by clicking here:
-
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/cassidoo/next-netlify-blog-starter&utm_source=github&utm_medium=blogstarter-cs&utm_campaign=devex)
-
-Or, if you'd like to build it yourself, here's a [tutorial blog post](https://url.netlify.com/ByVW0bCF8) that should get you on the right track!
-
-## The nitty gritty
-
-If you'd like to work with this project locally, run the development server:
+## ✨ Getting started
 
 ```bash
+npx degit Charca/sapper-blog-template my-blog
+cd my-blog
+npm install # or yarn!
 npm run dev
-# or
-yarn dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open up [localhost:3000](http://localhost:3000) and start clicking around.
 
-If you'd like to write a new blog post, write it in Markdown in the `posts` directory.
+Consult [sapper.svelte.dev](https://sapper.svelte.dev) for help getting started.
 
-### Installation options
+## 🏗 Structure
 
-**Option one:** One-click deploy
+The base structure of this template is the same as Sapper's [default template](https://github.com/sveltejs/sapper-template/). These are some of the new things you'll find here:
 
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/cassidoo/next-netlify-blog-starter&utm_source=github&utm_medium=blogstarter-cs&utm_campaign=devex)
+### src/routes/blog
 
-**Option two:** Manual clone
+This is the home of your blog. The most important files in here are:
 
-1. Clone this repo: `git clone https://github.com/cassidoo/next-netlify-blog-starter`
-2. Navigate to the directory and run `npm run dev`
-3. Make your changes
-4. Connect to [Netlify](https://url.netlify.com/r1j6ybSYU) manually (the `netlify.toml` file is the one you'll need to make sure stays intact to make sure the export is done and pointed to the right stuff)
+- `_posts.js`: this module contains the logic for loading and parsing your markdown posts.
+- `[slug].svelte`: this is the template of your blog post page.
+- `index.svelte`: this is the template of your article list page.
 
-### Styling
+### src/routes/blog/posts
 
-Included are some basic styles with [styled-jsx](https://github.com/zeit/styled-jsx), which is included out of the box with Next.js. Because this uses Next.js 9.3, there's also built-in Sass support and CSS Module support, if you'd prefer to use those.
+This is where your markdown posts live in. All `.md` files in this directory are treated as blog posts and parsed automatically by the `_posts.js` module.
 
-The font used is [Inter](https://fonts.google.com/specimen/Inter).
+- The markdown file name becomes the post slug. For example `hello-world.md` becomes `http://localhost:3000/blog/hello-world`.
+- Everything between the start of the post and the `<!-- more -->` tag becomes the article's "excerpt".
+- Frontmatter properties supported are `title` and `date`.
 
-### Hero images
+## 🚀 Deploy
 
-You may include an optional hero image in your posts. Put the images in `public/static/`, and then include in your blog .md file like so:
+[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/Charca/sapper-blog-template)
 
-```
----
-title: 'Post title'
-author: 'Post author'
-date: '2020-04-27'
-hero_image: ../static/example.jpg
----
-```
 
-See `demo-post-1.md` for an example of this.
+## 🐛 Bugs and feedback
+
+Sapper is in early development, and may have the odd rough edge here and there. Please be vocal over on the [Sapper issue tracker](https://github.com/sveltejs/sapper/issues).
