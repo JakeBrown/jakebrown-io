@@ -16,6 +16,5 @@
 </style>
 
 <header>
-  <Logo />
   <Nav {segment} />
 </header>
