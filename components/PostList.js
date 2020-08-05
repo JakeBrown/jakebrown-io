@@ -13,7 +13,7 @@ export default function PostList({ posts }) {
               <li key={post.slug}>
                 {post.frontmatter.date}: {` `}
                 <Link href="/post/[pid]" as={`/post/${post.slug}`}>
-                  {post?.frontmatter?.title}
+                  <a>{post?.frontmatter?.title}</a>
                 </Link>
               </li>
             );
