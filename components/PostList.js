@@ -8,12 +8,12 @@ export default function PostList({ posts }) {
       {!posts && <div>No posts!</div>}
       <ul>
         {posts &&
-          posts.map((post) => {
+          posts.map(post => {
             return (
               <li key={post.slug}>
                 {post.frontmatter.date}: {` `}
-                <Link href={{ pathname: `/post/${post.slug}` }}>
-                  <a>{post?.frontmatter?.title}</a>
+                <Link href="/post/[pid]" as={`/post/${post.slug}`}>
+                  {post?.frontmatter?.title}
                 </Link>
               </li>
             );
