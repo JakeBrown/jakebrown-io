@@ -35,7 +35,7 @@
 
 <div class="container">
   <h1>Blog</h1>
-  <p>This is mostly just my personal notepad. Someone, somewhere, might find this useful.</p>
+  <p>This is mostly just my personal notepad. Nothing to see here.</p>
   {#each posts as post, index}
     {#if index}
       <hr />
