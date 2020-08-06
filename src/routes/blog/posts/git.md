@@ -5,7 +5,7 @@ date: "2019-06-11T08:38:00.000Z"
 
 ## merge
 The *merge* command is used to integrate changes from another *branch*. The target of this integration (i.e. the *branch* that receives changes) is always the currently checked out HEAD *branch*. 
-```
+```git
 git merge xxx
 ```
 <br>
@@ -16,7 +16,7 @@ Delete local and remote tag:
 
 From [here](https://nathanhoad.net/how-to-delete-a-remote-git-tag/)
 
-```
+```git
 git tag -d 12345
 git push origin :refs/tags/12345
 ```
@@ -26,7 +26,7 @@ git push origin :refs/tags/12345
 
 ## rebase
 
-```
+```git
 git rebase -i <after-this-commit>
 ```
 
@@ -39,6 +39,6 @@ For example, if the user wishes to view 5 commits from the current HEAD in the p
 
 ## checkout only file/directory from branch
 
-```
+```git
 git checkout feature-branch -- src/js/some-file.js
 ```

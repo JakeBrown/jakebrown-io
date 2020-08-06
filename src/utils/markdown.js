@@ -5,8 +5,11 @@ const matter = require('gray-matter');
 const formatDate = require('date-fns/format');
 const readingTime = require('reading-time');
 
-// Support JSX syntax highlighting
+// Require language support for syntax highlighter
 require('prismjs/components/prism-jsx.min');
+require('prismjs/components/prism-vim');
+require('prismjs/components/prism-bash');
+require('prismjs/components/prism-python');
 
 const EXCERPT_SEPARATOR = '<!-- more -->';
 const renderer = new marked.Renderer();
@@ -30,6 +33,7 @@ renderer.link = (href, title, text) => {
 };
 
 renderer.code = (code, language) => {
+  console.log(prism.languages)
   const parser = prism.languages[language] || prism.languages.html;
   const highlighted = prism.highlight(code, parser, language);
   return `<pre class="language-${language}"><code class="language-${language}">${highlighted}</code></pre>`;

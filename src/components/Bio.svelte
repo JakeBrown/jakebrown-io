@@ -21,8 +21,8 @@
 <div>
   <img src="profile-pic-small.jpg" alt="Jake Brown">
   <p>
-    Hi, I'm <strong>Jake</strong>. I'm a software engineer and data scientist from South Australia.
+    Hi, I'm <strong>Jake</strong>. I'm a developer from South Australia.
     You can see some of my work on <a href="https://www.github.com/jakebrown" target="_blank">GitHub</a>,
-    or read more about my main project EyeSpace <a href="https://www.eyespacelenses.com" target="_blank">here</a>.
+    or read more about my main project EyeSpace™ <a href="https://www.eyespacelenses.com" target="_blank">here</a>.
   </p>
 </div>
