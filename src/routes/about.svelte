@@ -27,10 +27,17 @@
     <img src='profile-pic.jpg' alt='Jake in Iceland.'>
     <figcaption>Photo by Jake Brown</figcaption>
   </figure>
-  <p>Text placeholder via <a href="https://jeffsum.com/" target="_blank">Jeffsum</a>.</p>
-  <p>So you two dig up, dig up dinosaurs? What do they got in there? King Kong? My dad once told me, laugh and the world laughs with you, Cry, and I'll give you something to cry about you little bastard! Life finds a way. God creates dinosaurs. God destroys dinosaurs. God creates Man. Man destroys God. Man creates Dinosaurs.</p>
-  <p>You really think you can fly that thing? You know what? It is beets. I've crashed into a beet truck. Forget the fat lady! You're obsessed with the fat lady! Drive us out of here! Is this my espresso machine? Wh-what is-h-how did you get my espresso machine?</p>
-  <p>Hey, you know how I'm, like, always trying to save the planet? Here's my chance. Hey, take a look at the earthlings. Goodbye! I was part of something special. Just my luck, no ice. You're a very talented young man, with your own clever thoughts and ideas. Do you need a manager?</p>
-  <p>Jaguar shark! So tell me - does it really exist? This thing comes fully loaded. AM/FM radio, reclining bucket seats, and... power windows. Yes, Yes, without the oops! You're a very talented young man, with your own clever thoughts and ideas. Do you need a manager?</p>
-  <p>Yes, Yes, without the oops! Do you have any idea how long it takes those cups to decompose. They're using our own satellites against us. And the clock is ticking. Do you have any idea how long it takes those cups to decompose. My dad once told me, laugh and the world laughs with you, Cry, and I'll give you something to cry about you little bastard!</p>
+  <p>
+  I'm a developer living in Adelaide, South Australia.
+  I'm driven to find ways to make people's jobs and their lives easier, through technology.
+  </p>
+
+  <p>In 2012 I completed Honours in High Performance Computational Phyiscs at the University of Adelaide. It's billed as <i>solving difficult Physics problems with supercomputers</i>. But for me, it was about trying to understand the world through mathematics and abstraction, and <i>finding programmatic solutions to real world problems</i>.</p>
+
+  <p>At EyeSpace™, which I co-founded in 2010, we produce software used by eye doctors around the world for designing, simulating, and manufacturing custom contact lenses.
+  Our job is to enable and assist doctors with treating difficult eye conditions, often with life-changing results.</p>
+
+  <p>I have a deep interest in software architecture and modern development practices.</p>
+  <p>Outside of this, I enjoy hiking in the great outdoors, freediving, rock climbing, and powerlifting.</p>
+
 </div>
