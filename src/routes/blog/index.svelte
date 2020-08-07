@@ -1,15 +1,3 @@
-<script context="module">
-  export function preload({ params, query }) {
-    return this.fetch(`blog.json`).then(r => r.json()).then(posts => {
-      return { posts };
-    });
-  }
-</script>
-
-<script>
-  export let posts;
-</script>
-
 <style>
   h2,
   .post-item-footer {
@@ -18,7 +6,7 @@
   }
 
   .post-item-date {
-    color: #AAA;
+    color: #aaa;
     text-align: left;
     text-transform: uppercase;
     margin-right: 16px;
@@ -28,6 +16,20 @@
     margin: 60px auto;
   }
 </style>
+
+<script context="module">
+  export function preload({ params, query }) {
+    return this.fetch(`blog.json`)
+      .then((r) => r.json())
+      .then((posts) => {
+        return { posts }
+      })
+  }
+</script>
+
+<script>
+  export let posts
+</script>
 
 <svelte:head>
   <title>Blog</title>
@@ -42,7 +44,7 @@
     {/if}
     <div class="post-item">
       <h2>
-        <a rel='prefetch' href='blog/{post.slug}'>{post.title}</a>
+        <a rel="prefetch" href="blog/{post.slug}">{post.title}</a>
       </h2>
       <p>{post.excerpt}</p>
       <div class="post-item-footer">

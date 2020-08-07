@@ -28,7 +28,7 @@
   }
 
   figcaption {
-    font-size: .8em;
+    font-size: 0.8em;
     font-style: italic;
   }
 
@@ -71,6 +71,6 @@
   </div>
 
   <figure>
-    <img alt='Robot' src='undraw-illustration-2.svg'>
+    <img alt="Robot" src="undraw-illustration-2.svg" />
   </figure>
 </div>

@@ -1,23 +1,3 @@
-<script context="module">
-  export async function preload({ params, query }) {
-    // the `slug` parameter is available because
-    // this file is called [slug].html
-    const res = await this.fetch(`blog/${params.slug}.json`);
-    const data = await res.json();
-
-    if (res.status === 200) {
-      return { post: data };
-    } else {
-      this.error(res.status, data.message);
-    }
-  }
-</script>
-
-<script>
-  import Bio from '../../components/Bio.svelte'
-  export let post
-</script>
-
 <style>
   header {
     text-align: center;
@@ -28,7 +8,7 @@
   }
 
   header p {
-    color: #AAA;
+    color: #aaa;
     text-transform: uppercase;
     font-family: Rubik, sans-serif;
     font-weight: 600;
@@ -39,6 +19,26 @@
     width: 30%;
   }
 </style>
+
+<script context="module">
+  export async function preload({ params, query }) {
+    // the `slug` parameter is available because
+    // this file is called [slug].html
+    const res = await this.fetch(`blog/${params.slug}.json`)
+    const data = await res.json()
+
+    if (res.status === 200) {
+      return { post: data }
+    } else {
+      this.error(res.status, data.message)
+    }
+  }
+</script>
+
+<script>
+  import Bio from '../../components/Bio.svelte'
+  export let post
+</script>
 
 <svelte:head>
   <title>{post.title}</title>

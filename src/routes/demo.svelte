@@ -1,33 +1,33 @@
-<script>
-  function sayHello(e) {
-    console.log(e);
-    console.log("Hello");
-  }
-
-  function printInput(e) {
-    console.log(e.target.value);
-  }
-
-  let sleepTime = 1000;
-  function sleep(ms) {
-    return new Promise(resolve => setTimeout(resolve, ms));
-  }
-
-  let name = "Jake";
-  let j = 0;
-  async function run() {
-    while (true) {
-      j = j + 1;
-      await sleep(sleepTime);
-      console.log("Updating on schedule: " + sleepTime);
-    }
-  }
-  run();
-</script>
-
 <style>
 
 </style>
+
+<script>
+  function sayHello(e) {
+    console.log(e)
+    console.log('Hello')
+  }
+
+  function printInput(e) {
+    console.log(e.target.value)
+  }
+
+  let sleepTime = 1000
+  function sleep(ms) {
+    return new Promise((resolve) => setTimeout(resolve, ms))
+  }
+
+  let name = 'Jake'
+  let j = 0
+  async function run() {
+    while (true) {
+      j = j + 1
+      await sleep(sleepTime)
+      console.log('Updating on schedule: ' + sleepTime)
+    }
+  }
+  run()
+</script>
 
 <svelte:head>
   <title>Demo</title>

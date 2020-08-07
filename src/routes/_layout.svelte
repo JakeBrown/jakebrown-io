@@ -1,9 +1,3 @@
-<script>
-  import Header from '../components/Header.svelte';
-
-  export let segment;
-</script>
-
 <style>
   .layout {
     display: flex;
@@ -26,7 +20,7 @@
   }
 
   footer {
-    color: #AAA;
+    color: #aaa;
     font-size: 1em;
     font-family: Rubik, sans-serif;
     margin: 1em auto;
@@ -37,17 +31,24 @@
   }
 </style>
 
+<script>
+  import Header from '../components/Header.svelte'
+
+  export let segment
+</script>
+
 <div class="layout">
-  <Header {segment}/>
+  <Header {segment} />
 
   <main>
-    <slot></slot>
+    <slot />
   </main>
 
   <footer>
     <span>
-      &copy; {new Date().getFullYear()} Jake Brown.
-      Powered by <a href="https://sapper.svelte.dev" target="_blank">Sapper</a>.
+      &copy; {new Date().getFullYear()} Jake Brown. Powered by
+      <a href="https://sapper.svelte.dev" target="_blank">Sapper</a>
+      .
     </span>
   </footer>
 </div>
