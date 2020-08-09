@@ -1,17 +1,15 @@
-import sirv from 'sirv'
-import polka from 'polka'
-import compression from 'compression'
-import * as sapper from '@sapper/server'
+// server.js
+const { createServer } = require("http");
+const app = require("./dist/App.js");
 
-const { PORT, NODE_ENV } = process.env
-const dev = NODE_ENV === 'development'
+createServer((req, res) => {
+  const { html } = app.render({ url: req.url });
 
-polka() // You can also use Express
-  .use(
-    compression({ threshold: 0 }),
-    sirv('static', { dev }),
-    sapper.middleware(),
-  )
-  .listen(PORT, (err) => {
-    if (err) console.log('error', err)
-  })
+  res.write(`
+    <!DOCTYPE html>
+    <div id="app">${html}</div>
+    <script src="/dist/bundle.js"></script>
+  `);
+
+  res.end();
+}).listen(3000);
