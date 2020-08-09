@@ -57,19 +57,19 @@
 </style>
 
 <script>
-  import Logo from './Logo.svelte';
-  import { links } from "svelte-routing";
-  import { LOCATION, ROUTER } from "svelte-routing/src/contexts.js";
-  import { getContext, setContext, onMount } from "svelte";
-  const locationContext = getContext(LOCATION);
-  const routerContext = getContext(ROUTER);
+  import Logo from './Logo.svelte'
+  import { links } from 'svelte-routing'
+  import { LOCATION, ROUTER } from 'svelte-routing/src/contexts.js'
+  import { getContext, setContext, onMount } from 'svelte'
+  const locationContext = getContext(LOCATION)
+  const routerContext = getContext(ROUTER)
   $: url = $locationContext.pathname
 </script>
 
 <header>
-<nav use:links>
-  <a class={url=='/' ? 'selected' : ''} href="/">home</a>
-  <a class={url=='/about' ? 'selected' : ''} href="/about">about</a>
-  <a class={url=='/blog' ? 'selected' : ''} href="/blog">blog</a>
-</nav>
+  <nav use:links>
+    <a class={url == '/' ? 'selected' : ''} href="/">home</a>
+    <a class={url == '/about' ? 'selected' : ''} href="/about">about</a>
+    <a class={url == '/blog' ? 'selected' : ''} href="/blog">blog</a>
+  </nav>
 </header>

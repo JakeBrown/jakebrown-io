@@ -1,7 +1,3 @@
-<script>
-  export let post;
-</script>
-
 <style>
   header {
     text-align: center;
@@ -23,6 +19,10 @@
     width: 30%;
   }
 </style>
+
+<script>
+  export let post
+</script>
 
 <svelte:head>
   <title>{post.title}</title>

@@ -1,17 +1,3 @@
-<script>
-  import { Router, Link, Route } from "svelte-routing";
-  import Header from './components/Header.svelte'
-  import Blog from "./Blog.svelte";
-  import About from "./About.svelte";
-  import Index from "./Index.svelte";
-  import Post from "./Post.svelte";
-  import all from "./posts/*.md";
-  let posts = all
-    .map(post => ({ ...post, html: post.html.replace(/^\t{3}/gm, "") }))
-    .sort((a, b) => new Date(b.date) - new Date(a.date));
-  let startUrl = window.location.pathname
-</script>
-
 <style>
   .layout {
     display: flex;
@@ -58,37 +44,60 @@
   }
 </style>
 
+<script>
+  import { Router, Link, Route } from 'svelte-routing'
+  import Header from './components/Header.svelte'
+  import Blog from './Blog.svelte'
+  import About from './About.svelte'
+  import Index from './Index.svelte'
+  import Post from './Post.svelte'
+  import Error from './Error.svelte'
+  import all from './posts/*.md'
+  let posts = all
+    .map((post) => ({ ...post, html: post.html.replace(/^\t{3}/gm, '') }))
+    .sort((a, b) => new Date(b.date) - new Date(a.date))
+  let startUrl = window.location.pathname
 
-
+  function findPost(slug) {
+    var found = posts.find(function (element) {
+      return element.slug == slug
+    })
+    return found
+  }
+</script>
 
 <div class="layout">
-<Router url={startUrl} >
-  <Header />
-  <main>
-    <Route path="/blog/:id">
-      <Post post={posts[0]} />
-    </Route>
-    <Route path="/blog">
-      <Blog {posts} />
-    </Route>
-    <Route path="/">
-      <Index />
-    </Route>
-    <Route path="/about">
-      <About />
-    </Route>
-    <Route >
-      Not fond
-    </Route>
-  </main>
+  <Router url={startUrl}>
+    <Header />
+    <main>
+      <Route path="/blog/:slug" let:params>
+        {#if findPost(params.slug)}
+          <Post post={findPost(params.slug)} />
+        {:else}
+          <Error status="404" message="Blog post not found" />
+        {/if}
+      </Route>
+      <Route path="/blog">
+        <Blog {posts} />
+      </Route>
+      <Route path="/">
+        <Index />
+      </Route>
+      <Route path="/about">
+        <About />
+      </Route>
+      <Route>
+        <Error status="404" message="Page not found" />
+      </Route>
+    </main>
 
-  <footer>
-    <span>
-      &copy; {new Date().getFullYear()} Jake Brown. Powered by
-      <a href="https://svelte.dev" target="_blank" rel="noopener">Svelte</a>
-      .
-    </span>
-  </footer>
+    <footer>
+      <span>
+        &copy; {new Date().getFullYear()} Jake Brown. Powered by
+        <a href="https://svelte.dev" target="_blank" rel="noopener">Svelte</a>
+        .
+      </span>
+    </footer>
 
-</Router>
+  </Router>
 </div>

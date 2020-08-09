@@ -1,8 +1,3 @@
-<script>
-  import { Link } from "svelte-routing";
-  export let posts;
-</script>
-
 <style>
   main {
     text-align: center;
@@ -25,6 +20,10 @@
   }
 </style>
 
+<script>
+  import { Link } from 'svelte-routing'
+  export let posts
+</script>
 
 <div class="container">
   <h1>Blog</h1>
