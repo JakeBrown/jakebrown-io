@@ -25,6 +25,10 @@
   export let posts
 </script>
 
+<svelte:head>
+  <title>Blog</title>
+</svelte:head>
+
 <div class="container">
   <h1>Blog</h1>
   <p>This is mostly just my personal notepad. Nothing to see here.</p>
