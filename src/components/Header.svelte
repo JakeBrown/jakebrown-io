@@ -59,10 +59,9 @@
 <script>
   import Logo from './Logo.svelte'
   import { links } from 'svelte-routing'
-  import { LOCATION, ROUTER } from 'svelte-routing/src/contexts.js'
-  import { getContext, setContext, onMount } from 'svelte'
+  import { LOCATION } from 'svelte-routing/src/contexts.js'
+  import { getContext } from 'svelte'
   const locationContext = getContext(LOCATION)
-  const routerContext = getContext(ROUTER)
   $: url = $locationContext.pathname
 </script>
 

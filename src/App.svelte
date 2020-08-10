@@ -64,6 +64,7 @@
     })
     return found
   }
+  $: url1 = window.location.pathname
 </script>
 
 <div class="layout">
@@ -96,6 +97,7 @@
         &copy; {new Date().getFullYear()} Jake Brown. Powered by
         <a href="https://svelte.dev" target="_blank" rel="noopener">Svelte.</a>
       </span>
+      <p>{url1}</p>
     </footer>
 
   </Router>

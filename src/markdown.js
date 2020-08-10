@@ -9,6 +9,7 @@ const readingTime = require('reading-time')
 require('prismjs/components/prism-jsx.min')
 require('prismjs/components/prism-vim')
 require('prismjs/components/prism-bash')
+require('prismjs/components/prism-svelte')
 require('prismjs/components/prism-python')
 
 const EXCERPT_SEPARATOR = '<!-- more -->'
