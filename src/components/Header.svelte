@@ -69,7 +69,7 @@
   <nav use:links>
     <a class={url == '/' ? 'selected' : ''} href="/">home</a>
     <a class={url == '/about' ? 'selected' : ''} href="/about">about</a>
-    <a class={url == '/blog' ? 'selected' : ''} href="/blog">blog</a>
+    <a class={url.includes('/blog') ? 'selected' : ''} href="/blog">blog</a>
     {#if url == '/demo'}
       <a class={url == '/demo' ? 'selected' : ''} href="/demo">demo</a>
     {/if}
