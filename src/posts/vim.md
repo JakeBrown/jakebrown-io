@@ -3,15 +3,10 @@ title: "Vim"
 date: 2020-05-29
 ---
 
-I've been hooked on the fluidity and responsiveness of Vim since 2013. 
-Sure, I've used IntelliJ for mammoth Java projects - It just feels safer with the built-in refactoring support, but Vim has been my go-to for everything else
+Vim is my editor of choice.
+I've tried to switch, and although Vim-mode plugins for editors like Visual Studio Code allow you to use your well-earned muscle memory, nothing quite matches the snappiness of Vim in the terminal.
 
-I've tried other lightweight editors, usually after watching a tutorial and being reminded about all the flashy plugins for Visual Studio Code.
-But every time I have tried to switch, I longed for the snappiness of Vim.
-And although Vim-mode plugins for various editors still allowed me to use my hard-fought muscle memory, it always seemed like a second-rate imitation.
-
-CoC comes pretty close to providing a nice IDE-like experience in Vim, so maybe that is the better trade-off for me..
-
+CoC comes pretty close to providing a nice IDE-like experience in Vim, so maybe that is the better trade-off for me.
 
 ## Handy commands for COC
 
