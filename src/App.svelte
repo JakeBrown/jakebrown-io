@@ -48,6 +48,7 @@
   import { Router, Link, Route } from 'svelte-routing'
   import Header from './components/Header.svelte'
   import Blog from './Blog.svelte'
+  import Demo from './Demo.svelte'
   import About from './About.svelte'
   import Index from './Index.svelte'
   import Post from './Post.svelte'
@@ -87,6 +88,9 @@
       <Route path="/about">
         <About />
       </Route>
+      <Route path="/demo">
+        <Demo />
+      </Route>
       <Route>
         <Error status="404" message="Page not found" />
       </Route>
@@ -97,7 +101,6 @@
         &copy; {new Date().getFullYear()} Jake Brown. Powered by
         <a href="https://svelte.dev" target="_blank" rel="noopener">Svelte.</a>
       </span>
-      <p>{url1}</p>
     </footer>
 
   </Router>

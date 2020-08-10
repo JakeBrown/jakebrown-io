@@ -70,5 +70,8 @@
     <a class={url == '/' ? 'selected' : ''} href="/">home</a>
     <a class={url == '/about' ? 'selected' : ''} href="/about">about</a>
     <a class={url == '/blog' ? 'selected' : ''} href="/blog">blog</a>
+    {#if url == '/demo'}
+      <a class={url == '/demo' ? 'selected' : ''} href="/demo">demo</a>
+    {/if}
   </nav>
 </header>
