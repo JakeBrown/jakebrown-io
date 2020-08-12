@@ -44,9 +44,17 @@
 </style>
 
 <script>
+  let reasons = [
+    `Select one...`,
+    `EyeSpace`,
+    `Other existing project`,
+    `New project`,
+    `Something else`,
+  ]
   let name = ''
   let email = ''
   let message = ''
+  let selectedReason = reasons[0]
 
   const encode = (data) => {
     return Object.keys(data)
@@ -58,8 +66,15 @@
   const handleSubmit = async (e) => {
     e.preventDefault()
     console.log('submitting')
-    let payload = { 'form-name': 'contact', name, email, message }
+    let payload = {
+      'form-name': 'contact',
+      name,
+      email,
+      message,
+      selectedReason,
+    }
     console.log(payload)
+    console.log('Selected reason: ' + selectedReason)
     try {
       let response = await fetch('/', {
         method: 'POST',
@@ -76,6 +91,7 @@
       name = ''
       email = ''
       message = ''
+      selectedReason = reasons[0]
     } catch (err) {
       alert(err)
     }
@@ -96,12 +112,10 @@
       id="email"
       placeholder="Your Email" />
     <label for="country">What is this regarding?</label>
-    <select name="reason[]">
-      <option value="0">Select one...</option>
-      <option value="EyeSpace">EyeSpace&trade;</option>
-      <option value="Other Existing Project">Other Existing Project</option>
-      <option value="New Project">New Project</option>
-      <option value="Something else">Something else</option>
+    <select bind:value={selectedReason}>
+      {#each reasons as reason}
+        <option value={reason}>{reason}</option>
+      {/each}
     </select>
     <textarea
       name="message"
