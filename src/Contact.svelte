@@ -4,10 +4,9 @@
   let message = ''
   let handleSubmit = (e) => {
     e.preventDefault()
-    let payload = {name, email, message}
+    let payload = { name, email, message }
     console.log('submitting')
     console.log(payload)
-    return
     fetch('/', {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
@@ -15,8 +14,6 @@
     })
       .then(() => alert('Success!'))
       .catch((error) => alert(error))
-
-    e.preventDefault()
   }
 </script>
 
