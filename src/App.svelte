@@ -48,6 +48,7 @@
   import { Router, Link, Route } from 'svelte-routing'
   import Header from './components/Header.svelte'
   import Blog from './Blog.svelte'
+  import Contact from './Contact.svelte'
   import Demo from './Demo.svelte'
   import About from './About.svelte'
   import Index from './Index.svelte'
@@ -88,6 +89,9 @@
       </Route>
       <Route path="/about">
         <About />
+      </Route>
+      <Route path="/contact">
+        <Contact />
       </Route>
       <Route path="/demo">
         <Demo />
