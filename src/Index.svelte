@@ -60,17 +60,24 @@
   }
 </style>
 
+<script>
+  import { showDemo } from './store.js'
+  function showDemoFunc() {
+    console.log('toggling demo')
+    $showDemo = !$showDemo
+  }
+</script>
+
 <svelte:head>
   <title>Jake Brown</title>
 </svelte:head>
-
 <div class="home-container">
   <div class="home-copy">
     <h1>Jake Brown</h1>
     <p>Developer. EyeSpace™ co-founder and CTO.</p>
   </div>
 
-  <figure>
+  <figure on:click={showDemoFunc}>
     <img alt="Robot" src="undraw-illustration-2.svg" />
   </figure>
 </div>

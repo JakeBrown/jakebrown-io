@@ -20,7 +20,7 @@
   }
 
   footer {
-    color: #fd6378;
+    color: #aaa;
     font-size: 1em;
     font-family: Rubik, sans-serif;
     margin: 1em auto;
@@ -54,6 +54,7 @@
   import Post from './Post.svelte'
   import Error from './Error.svelte'
   import all from './posts/*.md'
+
   let posts = all
     .map((post) => ({ ...post, html: post.html.replace(/^\t{3}/gm, '') }))
     .sort((a, b) => new Date(b.date) - new Date(a.date))

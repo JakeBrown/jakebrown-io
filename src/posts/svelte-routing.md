@@ -50,10 +50,36 @@ This is all I needed:
 
 As long as the component calling `getContext` is inside the `<Router>` component, it works just fine.
 
-I'm not sure why svelte-routing doesn't discuss this. 
+I'm not sure why svelte-routing doesn't discuss this.
 While the solution is simple, it's also non-documented and presumably not part of the official API, so it could change without notice.
-I'm fine using such a solution on this toy project. 
-But on a production site? There might be a better option out there. 
+I'm fine using such a solution on this toy project.
+But on a production site? There might be a better option out there.
+
+## Other options
+
+What about tapping in to the browser's API to keep track of the URL ourselves?
+Let's immediately disregard polling as an option because that seems like a messy hack.
+Are there any browser events we can listen to?
+
+There's [this](https://developer.mozilla.org/en-US/docs/Web/API/Window/popstate_event):
+
+```javascript
+window.onpopstate = function (event) {
+  console.log(
+    'location: ' +
+      document.location +
+      ', state: ' +
+      JSON.stringify(event.state),
+  )
+}
+```
+
+One problem:
+
+> Note that just calling history.pushState() or history.replaceState() won't trigger a popstate event. The popstate event will be triggered by doing a browser action such as a click on the back or forward button (or calling history.back() or history.forward() in JavaScript).
+
+So we're going to miss any of the navigation that happens within our app.
+Unfortunately, it doesn't look like there are any other options, so we're stuck with tapping in to the svelte-routing context for now.
 
 ## Links
 

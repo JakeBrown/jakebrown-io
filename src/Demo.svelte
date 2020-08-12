@@ -3,6 +3,7 @@
 </style>
 
 <script>
+  import { showDemo } from './store.js'
   function sayHello(e) {
     alert(`Hello ${name}`)
   }
@@ -30,6 +31,10 @@
     }
   }
   run()
+  function showDemoFunc() {
+    console.log('toggling demo')
+    $showDemo = !$showDemo
+  }
 </script>
 
 <svelte:head>
@@ -55,6 +60,9 @@
     <button on:click={sayHello}>Say hello</button>
     <button on:click={resetInput}>Reset Input</button>
     <button on:click={resetCounter}>Reset Counter</button>
+    <button on:click={showDemoFunc}>
+      {$showDemo ? 'Hide' : 'Show'} Demo Link
+    </button>
   </div>
 
 </div>
