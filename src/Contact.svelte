@@ -71,7 +71,7 @@
       name,
       email,
       message,
-      selectedReason,
+      'selectedReason[]': selectedReason,
     }
     console.log(payload)
     console.log('Selected reason: ' + selectedReason)
