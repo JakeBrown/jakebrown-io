@@ -27,6 +27,9 @@ $: url = window.location.pathname
 I expected this to work without issue, so there's probably an obvious gap in my understanding of how [Svelte reactivity](https://svelte.dev/tutorial/reactive-declarations) works.
 What happens? Well `url` is just the initial url from when the javascript loads.
 
+> Edit: of course it didn't work. Reactivity is triggered via [*assignment*](https://svelte.dev/tutorial/updating-arrays-and-objects).
+
+
 So I dug a little deeper into the svelte-routing source code, and I could see that [`<Link>`](https://github.com/EmilTholin/svelte-routing/blob/master/src/Link.svelte) implemented URL retrieval using `contexts`, which was a Svelte feature I hadn't learnt about yet.
 I just needed to tap into this context.
 
