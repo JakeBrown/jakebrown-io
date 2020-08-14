@@ -31,7 +31,7 @@
 
 <div class="container">
   <h1>Blog</h1>
-  <p>This is mostly just my personal notepad. Nothing to see here.</p>
+  <p>Code snippets, patterns and recipes. This is mostly just my personal notepad.</p>
   {#each posts as post, index}
     {#if index}
       <hr />
