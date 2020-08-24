@@ -11,8 +11,8 @@ Worth running through whenever you need a Flexbox refresher.
 
 I'll include some code snippets here when I get around to it.
 
-## Align items inside container
 
+## Align items inside container
 
 
 ```html
@@ -54,3 +54,15 @@ I'll include some code snippets here when I get around to it.
 
 
 ![Flex align](/images/flex-align-1.png)
+![Flex align](/images/layout.gif)
+
+- main-axis: The main axis of a flex container is the primary axis along which flex items are laid out. The direction is based on the flex-direction property.
+- Layout is set using (for example) `justify-content: center;`.
+- cross axis: The axis perpendicular to the main axis is called the cross axis. Its direction depends on the main axis direction.
+- Layout on this axis is set using (for example) `align-items: center;`.
+
+https://www.freecodecamp.org/news/flexbox-the-ultimate-css-flex-cheatsheet/
+
+
+When we set `flex-direction: column` we are setting the main axis to be vertical.
+Then, if we want to align items along the *horizontal* axis, we need to use align-items. 
