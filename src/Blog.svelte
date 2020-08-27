@@ -22,6 +22,7 @@
 
 <script>
   import { Link } from 'svelte-routing'
+  import { fade, fly} from 'svelte/transition';
   export let posts
 </script>
 
@@ -29,7 +30,7 @@
   <title>Blog</title>
 </svelte:head>
 
-<div class="container">
+<div in:fly="{{ y: 200, duration: 500 }}" class="container">
   <h1>Blog</h1>
   <p>Code snippets, patterns and recipes. This is mostly just my personal notepad.</p>
   {#each posts as post, index}
