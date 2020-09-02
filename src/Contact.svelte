@@ -103,7 +103,7 @@
 </svelte:head>
 <div class="container">
   <h1>Contact</h1>
-  <p>If you need to get in contact with me you can fill out this form:</p>
+<p><a href="https://calendly.com/jake-brown/60min?month=2020-09">Make an appointment</a> or fill out this form to get in touch. </p>
   <form class="contactForm">
     <input type="text" bind:value={name} id="name" placeholder="Your Name" />
     <input
