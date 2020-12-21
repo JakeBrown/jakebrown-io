@@ -74,16 +74,6 @@
   <Router url={startUrl}>
     <Header />
     <main>
-      <Route path="/blog/:slug" let:params>
-        {#if findPost(params.slug)}
-          <Post post={findPost(params.slug)} />
-        {:else}
-          <Error status="404" message="Blog post not found" />
-        {/if}
-      </Route>
-      <Route path="/blog">
-        <Blog {posts} />
-      </Route>
       <Route path="/">
         <Index />
       </Route>
