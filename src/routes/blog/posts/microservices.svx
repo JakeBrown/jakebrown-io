@@ -3,6 +3,12 @@ title: Microservices patterns implementation and deployment
 date: '2020-09-08'
 ---
 
-Download the PDF [here](/microservices.pdf)
+Lecture given to University of Adelaide Software Architecture students in September 2020. 
+PDF slides are available <a rel="external" href="/static/microservices.pdf">here</a>.
 
-Lathe video [here](/videos/lathe-oscillating.mp4)
+<h2>Video demonstration: contact lens lathe</h2>
+<video controls >
+    <source src="/static/videos/lathe-oscillating.mp4"
+            type="video/mp4">
+</video>
+

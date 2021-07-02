@@ -11,6 +11,13 @@ export async function get() {
             slug: path.replace('./posts/', '').replace('.svx', '')
         });
     }
+    body.sort(function (a, b) {
+        if (a.metadata.date > b.metadata.date) {
+            return -1;
+        } else {
+            return 1;
+        }
+    });
 
     return {
         body: body,

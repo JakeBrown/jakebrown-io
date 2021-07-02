@@ -5,7 +5,7 @@
 <div class="container">
     <h1>About</h1>
     <figure>
-        <img src="profile-pic.jpg" alt="Jake in Iceland." />
+        <img src="/static/profile-pic.jpg" alt="Jake in Iceland." />
         <figcaption>Photo by Jake Brown</figcaption>
     </figure>
     <p>
