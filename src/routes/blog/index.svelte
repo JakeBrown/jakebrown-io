@@ -20,7 +20,7 @@
 
 <div in:fly={{ y: 200, duration: 500 }} class="container">
     <h1>Blog</h1>
-    <p>Code snippets, patterns and recipes. This is mostly just my personal notepad.</p>
+    <p>Code snippets, patterns and code recipes.</p>
     {#each body as post, index}
         {#if index}
             <hr />
