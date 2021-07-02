@@ -4,11 +4,10 @@
     import '$lib/fonts.css';
 </script>
 
-
 <div class="layout">
     <Header />
     <main>
-    <slot />
+        <slot />
     </main>
     <footer>
         <span>

@@ -1,20 +1,23 @@
 <script>
-  import { fade, fly } from 'svelte/transition';
-  const posts = import.meta.glob('./posts/*.svx')
-  let body = []
+    import { fade, fly } from 'svelte/transition';
+    const posts = import.meta.glob('./posts/*.svx');
+    let body = [];
 
-  async function loadPosts() {
-      console.log(posts)
-    for (const path in posts) {
-        console.log(path)
-        let post = await posts[path]()
-        body.push({metadata: post.metadata, slug: path.replace("./posts/", "").replace(".svx", "")})
+    async function loadPosts() {
+        console.log(posts);
+        for (const path in posts) {
+            console.log(path);
+            let post = await posts[path]();
+            body.push({
+                metadata: post.metadata,
+                slug: path.replace('./posts/', '').replace('.svx', '')
+            });
+        }
+        console.log(posts);
+        console.log(body);
+        body = body;
     }
-    console.log(posts)
-    console.log(body)
-      body= body
-}
-  loadPosts()
+    loadPosts();
 </script>
 
 <svelte:head>

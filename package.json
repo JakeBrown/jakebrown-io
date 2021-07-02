@@ -12,14 +12,7 @@
         "format:check": "prettier --check --plugin-search-dir=. ."
     },
     "dependencies": {
-        "@types/vfile": "^4.0.0",
-        "date-fns": "^1.30.1",
-        "front-matter": "^4.0.2",
-        "gray-matter": "^4.0.2",
-        "highlight.js": "^11.0.1",
-        "marked": "^1.1.1",
-        "prism-themes": "^1.7.0",
-        "prismjs": "^1.21.0"
+        "prism-themes": "^1.7.0"
     },
     "devDependencies": {
         "@fontsource/fira-mono": "^4.2.2",
@@ -33,7 +26,6 @@
         "@typescript-eslint/parser": "^4.19.0",
         "autoprefixer": "^10.2.6",
         "cssnano": "^5.0.2",
-        "dayjs": "^1.10.5",
         "eslint": "^7.22.0",
         "eslint-config-prettier": "^8.1.0",
         "eslint-plugin-svelte3": "^3.2.0",
@@ -43,20 +35,12 @@
         "postcss-load-config": "^3.0.1",
         "prettier": "~2.2.1",
         "prettier-plugin-svelte": "^2.2.0",
-        "rehype-highlight": "^4.1.0",
-        "rehype-stringify": "^8.0.0",
-        "remark-frontmatter": "^3.0.0",
-        "remark-gfm": "^1.0.0",
-        "remark-parse": "^9.0.0",
-        "remark-rehype": "^8.0.0",
         "svelte": "^3.34.0",
         "svelte-check": "^2.0.0",
         "svelte-preprocess": "^4.7.3",
         "tailwindcss": "^2.2.0",
-        "to-vfile": "^6.1.0",
         "tslib": "^2.0.0",
-        "typescript": "^4.0.0",
-        "unified": "^9.2.1"
+        "typescript": "^4.0.0"
     },
     "type": "module"
 }
