@@ -1,5 +1,5 @@
 ---
-title: Pandoc 
+title: Pandoc
 date: '2020-08-19'
 ---
 

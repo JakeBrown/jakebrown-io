@@ -27,8 +27,7 @@ $: url = window.location.pathname
 I expected this to work without issue, so there's probably an obvious gap in my understanding of how [Svelte reactivity](https://svelte.dev/tutorial/reactive-declarations) works.
 What happens? Well `url` is just the initial url from when the javascript loads.
 
-> Edit: of course it didn't work. Reactivity is triggered via [*assignment*](https://svelte.dev/tutorial/updating-arrays-and-objects).
-
+> Edit: of course it didn't work. Reactivity is triggered via [_assignment_](https://svelte.dev/tutorial/updating-arrays-and-objects).
 
 So I dug a little deeper into the svelte-routing source code, and I could see that [`<Link>`](https://github.com/EmilTholin/svelte-routing/blob/master/src/Link.svelte) implemented URL retrieval using `contexts`, which was a Svelte feature I hadn't learnt about yet.
 I just needed to tap into this context.
@@ -68,13 +67,8 @@ There's [this](https://developer.mozilla.org/en-US/docs/Web/API/Window/popstate_
 
 ```javascript
 window.onpopstate = function (event) {
-  console.log(
-    'location: ' +
-      document.location +
-      ', state: ' +
-      JSON.stringify(event.state),
-  )
-}
+    console.log('location: ' + document.location + ', state: ' + JSON.stringify(event.state));
+};
 ```
 
 One problem:
@@ -86,6 +80,6 @@ Unfortunately, it doesn't look like there are any other options, so we're stuck 
 
 ## Links
 
-- [Original Sapper template](https://github.com/Charca/sapper-blog-template)
-- [This site using Sapper](https://github.com/JakeBrown/jakebrown-io/tree/sapper)
-- [This site using svelte-routing](https://github.com/JakeBrown/jakebrown-io)
+-   [Original Sapper template](https://github.com/Charca/sapper-blog-template)
+-   [This site using Sapper](https://github.com/JakeBrown/jakebrown-io/tree/sapper)
+-   [This site using svelte-routing](https://github.com/JakeBrown/jakebrown-io)

@@ -1,5 +1,5 @@
 ---
-title: "Vim and CoC"
+title: 'Vim and CoC'
 date: 2020-05-29
 ---
 
@@ -10,11 +10,10 @@ CoC comes pretty close to providing a nice IDE-like experience in Vim, so maybe 
 
 ## Handy commands for COC
 
-- gd - go to definition
-- ctrl-o - return (:help jumplist)
-- :CocConfig - will bring up the coc json config file
-- :CocList snippets - list snippets for current file type
-
+-   gd - go to definition
+-   ctrl-o - return (:help jumplist)
+-   :CocConfig - will bring up the coc json config file
+-   :CocList snippets - list snippets for current file type
 
 ## Getting python linting working:
 
@@ -27,26 +26,25 @@ We need to make sure it picks the right interpreter. To do this, do:
 And pick the interpreter.
 
 It also needs to pick the correct workspace file. You can do it manually like:
-- Run :CocList folders.
-- Press <cr> and edit the path to correct folder.
-- Run :CocRestart to restart service.
-- Save a session file to persist workspaceFolders.
-- (https://github.com/neoclide/coc-python/issues/26)
+
+-   Run :CocList folders.
+-   Press <cr> and edit the path to correct folder.
+-   Run :CocRestart to restart service.
+-   Save a session file to persist workspaceFolders.
+-   (https://github.com/neoclide/coc-python/issues/26)
 
 But that’s a pain because you need to manually do it each time.
 Instead, we have set our coc-config to look for Pipfile and package.json since they will work well in our monorepo.
 
 More info [here](https://github.com/neoclide/coc.nvim/wiki/Using-workspaceFolders).
 
-
 ## CoC Config
 
 We can always do :CocLocalConfig and put a settings file in each project if we need to.
 
-
 ## Terminal escape key
-Ctrl-w
 
+Ctrl-w
 
 ## Relative line numbers
 

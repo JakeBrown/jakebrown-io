@@ -14,5 +14,4 @@ cd new-project
 npm run dev
 ```
 
-Check the soure code on [GitHub](https://github.com/JakeBrown/svelte-min) to see what it includes. 
-
+Check the soure code on [GitHub](https://github.com/JakeBrown/svelte-min) to see what it includes.

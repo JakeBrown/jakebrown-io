@@ -48,7 +48,6 @@ def create_dashboard(server):
 Write as many of these as you like.
 Then import them into a global index app like this:
 
-
 `index.py`
 
 ```python
@@ -76,7 +75,7 @@ def create_app():
     return app
 ```
 
-Easy! 
+Easy!
 
 ## Deploying to App Engine
 
@@ -88,6 +87,6 @@ runtime: python37
 entrypoint: gunicorn -b :$PORT 'index:create_app()'
 instance_class: B8
 basic_scaling:
-  max_instances: 1
-  idle_timeout: 30m
+    max_instances: 1
+    idle_timeout: 30m
 ```

@@ -11,9 +11,9 @@ In particular, Lesson #12 (Custom Hooks for Context Providers) details this meth
 Basically, it is a simple pattern that lets us import and use our app state like this:
 
 ```javascript
-import { useAppState } from '../state'
+import { useAppState } from '../state';
 
-const { isMenuOpen, toggleMenu } = useAppState()
+const { isMenuOpen, toggleMenu } = useAppState();
 ```
 
 No need to import `useContext` every time!
@@ -26,29 +26,29 @@ This is the only time you need to use either `createContext` or `useContext`.
 `src/state/PageWrapper.js`
 
 ```javascript
-import React, { createContext, useContext } from 'react'
-import { useToggle } from '../hooks'
+import React, { createContext, useContext } from 'react';
+import { useToggle } from '../hooks';
 
 export const AppContext = createContext({
-  isMenuOpen: false,
-})
+    isMenuOpen: false
+});
 
 export const PageWrapper = ({ children }) => {
-  const { isToggled, toggle } = useToggle(false)
+    const { isToggled, toggle } = useToggle(false);
 
-  return (
-    <AppContext.Provider
-      value={{
-        isMenuOpen: isToggled,
-        toggleMenu: toggle,
-      }}
-    >
-      {children}
-    </AppContext.Provider>
-  )
-}
+    return (
+        <AppContext.Provider
+            value={{
+                isMenuOpen: isToggled,
+                toggleMenu: toggle
+            }}
+        >
+            {children}
+        </AppContext.Provider>
+    );
+};
 
-export const useAppState = () => useContext(AppContext)
+export const useAppState = () => useContext(AppContext);
 ```
 
 ## Making it convenient
@@ -88,30 +88,30 @@ function App() {
 Now we can use it in any child component:
 
 ```javascript
-import React from 'react'
-import { useAppState } from '../state'
+import React from 'react';
+import { useAppState } from '../state';
 
 const Nav = () => {
-  const { isMenuOpen, toggleMenu } = useAppState()
+    const { isMenuOpen, toggleMenu } = useAppState();
 
-  if (!isMenuOpen) return null
-  return (
-    <nav
-      style={{
-        background: 'var(--black)',
-        color: 'white',
-        position: 'fixed',
-        width: '100vw',
-        height: '100vh',
-        left: 0,
-        right: 0,
-      }}
-    >
-      <h1>Hello</h1>
-      <button onClick={toggleMenu}>Close</button>
-    </nav>
-  )
-}
+    if (!isMenuOpen) return null;
+    return (
+        <nav
+            style={{
+                background: 'var(--black)',
+                color: 'white',
+                position: 'fixed',
+                width: '100vw',
+                height: '100vh',
+                left: 0,
+                right: 0
+            }}
+        >
+            <h1>Hello</h1>
+            <button onClick={toggleMenu}>Close</button>
+        </nav>
+    );
+};
 
-export default Nav
+export default Nav;
 ```

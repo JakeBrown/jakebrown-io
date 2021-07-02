@@ -1,5 +1,5 @@
 ---
-title: "Curl"
+title: 'Curl'
 date: 2019-06-06
 ---
 

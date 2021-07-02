@@ -1,6 +1,6 @@
 ---
-title: "Python zip()"
-date: "2020-08-19"
+title: 'Python zip()'
+date: '2020-08-19'
 ---
 
 ```python

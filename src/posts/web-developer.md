@@ -1,17 +1,17 @@
 ---
-title: "I never wanted to be a Web Developer"
-date: "2016-02-10"
+title: 'I never wanted to be a Web Developer'
+date: '2016-02-10'
 ---
 
-*Web development is a really useful skill. Even in scientific computing. But it took me a while to realise that.*
+_Web development is a really useful skill. Even in scientific computing. But it took me a while to realise that._
 
-*Originally posted [here](https://medium.com/packt-hub/i-never-wanted-to-be-a-web-developer-cfbf68cc671c). Things sure have changed, but still a good summary of my early days.*
+_Originally posted [here](https://medium.com/packt-hub/i-never-wanted-to-be-a-web-developer-cfbf68cc671c). Things sure have changed, but still a good summary of my early days._
 
-My background is in scientific computing. 
-I like Fortran. 
-It’s fast. 
+My background is in scientific computing.
+I like Fortran.
+It’s fast.
 I like Java, it’s fast enough, especially with Just In Time compilation and decent libraries like Apache Commons Math.
-I like Matlab. 
+I like Matlab.
 It’s not fast, but prototyping in it is fast. So it makes you fast.
 
 So for a while, I never really gave a second thought to web development.
