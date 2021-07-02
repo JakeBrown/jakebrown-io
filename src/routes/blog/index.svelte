@@ -33,7 +33,7 @@
         {/if}
         <div class="post-item">
             <h2>
-                <a href="blog/posts/{post.slug}">{post.metadata.title}</a>
+                <a href="/blog/posts/{post.slug}">{post.metadata.title}</a>
             </h2>
             <div class="post-item-footer">
                 <span class="post-item-date">— {post.metadata.date}</span>
