@@ -179,7 +179,7 @@ new sfn.StateMachine(this, "clmath-standard", {
 
 
 Finally, we invoke it using Python+Boto3:
-```
+```python
 client = boto3.client("stepfunctions")
 t1 = time()
 # Submit for execution
