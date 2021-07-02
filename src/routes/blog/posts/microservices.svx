@@ -4,11 +4,11 @@ date: '2020-09-08'
 ---
 
 Lecture given to University of Adelaide Software Architecture students in September 2020. 
-PDF slides are available <a rel="external" href="/static/microservices.pdf">here</a>.
+PDF slides are available <a rel="external" href="/attachments/microservices.pdf">here</a>.
 
 <h2>Video demonstration: contact lens lathe</h2>
 <video controls >
-    <source src="/static/videos/lathe-oscillating.mp4"
+    <source src="/attachments/lathe-oscillating.mp4"
             type="video/mp4">
 </video>
 

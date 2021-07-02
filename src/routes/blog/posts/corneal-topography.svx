@@ -4,7 +4,7 @@ date: '2020-08-14'
 ---
 
 This comes from a lecture I did in 2013.
-You can download the original slides [here](/images/EyeSpace-Topography.pdf).
+You can download the original slides [here](/attachments/EyeSpace-Topography.pdf).
 
 ## Topography Basics
 

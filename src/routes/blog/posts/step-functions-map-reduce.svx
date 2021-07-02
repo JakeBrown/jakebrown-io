@@ -1,0 +1,122 @@
+---
+title: AWS Step functions - implementing MapReduce
+date: '2021-07-02'
+---
+
+Imports, nothing unusual here:
+```typescript
+import * as cdk from "@aws-cdk/core";
+import * as lambda from "@aws-cdk/aws-lambda";
+import * as sfn from "@aws-cdk/aws-stepfunctions";
+import * as tasks from "@aws-cdk/aws-stepfunctions-tasks";
+import * as logs from "@aws-cdk/aws-logs";
+import * as s3 from "@aws-cdk/aws-s3";
+import { PythonFunction } from "@aws-cdk/aws-lambda-python";
+```
+
+Now we define all of our Lambda functions:
+
+```typescript
+const dockerImage = lambda.DockerImageCode.fromImageAsset("..");
+
+const splitterFunc = new PythonFunction(this, "SplitterFunc", {
+    entry: "../lambda",
+    index: "lambda_helpers.py",
+    handler: "splitter",
+    runtime: lambda.Runtime.PYTHON_3_8,
+});
+
+const reducerFunc = new PythonFunction(this, "ReducerFunc", {
+    entry: "../lambda",
+    index: "lambda_helpers.py",
+    handler: "reducer",
+    runtime: lambda.Runtime.PYTHON_3_8,
+});
+
+const dockerFunc = new lambda.DockerImageFunction(this, "clmath", {
+    code: dockerImage,
+    memorySize: 512,
+    timeout: cdk.Duration.seconds(900),
+    environment: {
+    NUM_WORKERS: "1",
+    HASH_ONLY: "TRUE",
+    },
+    currentVersionOptions: {
+    removalPolicy: cdk.RemovalPolicy.RETAIN, // retain old versions
+    retryAttempts: 1, // async retry attempts
+    },
+});
+```
+
+A quick detour to look at the Python code for our helper functions.
+It is really simple:
+
+```python
+def reducer(event, context):
+    for payload in event:
+        if payload!=event[0]:
+            logging.info(f"Difference found: {payload} - {event[0]}")
+            return False
+    return True
+
+
+def splitter(event, context):
+    return [event]*20
+```
+
+Back to the CDK, now we map our functions to LambdaInvoke steps...
+
+```typescript
+const reduceJob = new tasks.LambdaInvoke(this, "Check Job", {
+    lambdaFunction: reducerFunc,
+    inputPath: "$",
+    outputPath: "$",
+});
+
+const splitJob = new tasks.LambdaInvoke(this, "Split Job", {
+    lambdaFunction: splitterFunc,
+    inputPath: "$",
+    outputPath: "$.Payload",
+});
+
+// Append lambda output to the input as lambda_response
+const calcJob = new tasks.LambdaInvoke(this, "Calc Job", {
+    lambdaFunction: dockerFunc,
+    outputPath: "$.Payload.SHAH_HASH",
+});
+const calcMap = new sfn.Map(this, "Calc Map", {
+    maxConcurrency: 0, // No limit, run as many concurrently as possible
+});
+calcMap.iterator(calcJob);
+
+const splitMap = new sfn.Map(this, "Split Map", {
+    maxConcurrency: 0, // No limit, run as many concurrently as possible
+});
+```
+
+Now we string everything together:
+```typescript
+const success = new sfn.Succeed(this, "Success");
+const fail = new sfn.Fail(this, "Differences found");
+
+const choiceFunc = new sfn.Choice(this, "Choice Func")
+    .when(sfn.Condition.booleanEquals("$.Payload", true), success)
+    .when(sfn.Condition.booleanEquals("$.Payload", false), fail);
+
+const subWorkflow = calcMap.next(reduceJob).next(choiceFunc);
+splitMap.iterator(splitJob.next(subWorkflow));
+
+const definition = splitMap.next(new sfn.Succeed(this, "FinalSuccess"));
+
+const logGroup = new logs.LogGroup(this, "lg");
+new sfn.StateMachine(this, "clmath-standard", {
+    definition,
+    timeout: cdk.Duration.seconds(3600),
+    tracingEnabled: true,
+    logs: {
+    destination: logGroup,
+    level: sfn.LogLevel.ALL,
+    },
+});
+```
+
