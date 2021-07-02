@@ -6,7 +6,7 @@ date: 2020-05-29
 Vim is my editor of choice.
 I've tried to switch, and although Vim-mode plugins for editors like Visual Studio Code allow you to use your well-earned muscle memory, nothing quite matches the snappiness of Vim in the terminal.
 
-CoC comes pretty close to providing a nice IDE-like experience in Vim, so maybe that is the better trade-off for me.
+CoC comes pretty close to providing a nice IDE-like experience in Vim.
 
 ## Handy commands for COC
 
