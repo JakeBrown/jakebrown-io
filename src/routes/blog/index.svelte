@@ -1,9 +1,7 @@
-<script>
-    import { fade, fly } from 'svelte/transition';
-    const posts = import.meta.glob('./posts/*.svx');
-    let body = [];
-
-    async function loadPosts() {
+<script context="module">
+    export async function load({ error, status }) {
+        const posts = import.meta.glob('./posts/*.svx');
+        let body = [];
         console.log(posts);
         for (const path in posts) {
             console.log(path);
@@ -13,11 +11,18 @@
                 slug: path.replace('./posts/', '').replace('.svx', '')
             });
         }
-        console.log(posts);
-        console.log(body);
-        body = body;
+
+        return {
+            props: {
+                body: body
+            }
+        };
     }
-    loadPosts();
+</script>
+
+<script>
+    import { fade, fly } from 'svelte/transition';
+    export let body = [];
 </script>
 
 <svelte:head>
