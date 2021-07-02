@@ -19,7 +19,7 @@ CoC comes pretty close to providing a nice IDE-like experience in Vim, so maybe 
 
 We need to make sure it picks the right interpreter. To do this, do:
 
-```vim
+```
 :CocCommand python.setInterpreter
 ```
 

@@ -1,5 +1,8 @@
 /node_modules/
 /public/build/
+/build/
+/functions/
+/.svelte-kit/
 *.swp
 
 .DS_Store

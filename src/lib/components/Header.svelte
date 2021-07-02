@@ -1,7 +1,5 @@
 <script>
-    import Logo from './Logo.svelte';
     import NavLink from './NavLink.svelte';
-    export let url;
 </script>
 
 <header>
@@ -30,9 +28,5 @@
         font-weight: 700;
         justify-content: flex-end;
         text-transform: uppercase;
-    }
-
-    .hidden {
-        visibility: hidden;
     }
 </style>

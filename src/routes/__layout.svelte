@@ -1,10 +1,15 @@
-<script>
+<script lang="ts">
     import Header from '$lib/components/Header.svelte';
+    import '$lib/app.postcss';
+    import '$lib/fonts.css';
 </script>
 
+
 <div class="layout">
-    <Header url="/" />
+    <Header />
+    <main>
     <slot />
+    </main>
     <footer>
         <span>
             &copy; {new Date().getFullYear()} Jake Brown. Powered by
@@ -43,13 +48,6 @@
         padding: 1em 2em;
         text-align: center;
         width: 100%;
-    }
-
-    h1 {
-        color: #ff3e00;
-        text-transform: uppercase;
-        font-size: 4em;
-        font-weight: 100;
     }
 
     @media (min-width: 640px) {
