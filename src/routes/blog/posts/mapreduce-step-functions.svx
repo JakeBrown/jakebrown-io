@@ -1,9 +1,66 @@
 ---
-title: AWS Step functions - implementing MapReduce
+title: Implementing MapReduce in AWS Step functions
 date: '2021-07-02'
 ---
 
+We're doing some numerical work in Lambda.
+There is some numerical instability and we want to make sure that we can reliably get the same results.
+We could use the AWS SDK to invoke Lambda in parallel:
+
+```python
+def generate(lambda_payload):
+    payload_bytes = bytes(json.dumps(lambda_payload), "UTF-8")
+    response = lambda_client.invoke(
+        FunctionName="arn:aws:lambda:ap-southeast-2:...",
+        InvocationType="RequestResponse",
+        Payload=payload_bytes,
+        LogType="Tail",
+    )
+    if response["StatusCode"] == 200:
+        payload = response["Payload"].read()
+        output.append(payload)
+        return payload
+    else:
+        raise Exception("Non-200 response")
+
+
+output = []
+threads = []
+
+for idx in range(0, 180):
+    x = threading.Thread(target=generate, args=(DEMO_PAYLOAD,))
+    threads.append(x)
+
+
+print(f"Executing {len(threads)} threads in parallel")
+
+t1 = time()
+for thread in threads:
+    thread.start()
+
+print("Running...")
+
+for thread in threads:
+    thread.join()
+t2 = time()
+
+print(output[0])
+for line in output:
+    if output[0] != line:
+        print(line)
+        raise Exception("Difference found")
+
+print(f"Elapsed time for {len(threads)} threads: {t2-t1}")
+print(f"Output length: {len(output)}")
+```
+
+But this is a bit brittle and we need to keep track of everything in memory. 
+An alternative would be to string together a system with SQS, but AWS Step functions provides an easier way:
+
+We will implement this with the CDK in TypeScript. Let's get started.
+
 Imports, nothing unusual here:
+
 ```typescript
 import * as cdk from "@aws-cdk/core";
 import * as lambda from "@aws-cdk/aws-lambda";
@@ -49,7 +106,7 @@ const dockerFunc = new lambda.DockerImageFunction(this, "clmath", {
 ```
 
 A quick detour to look at the Python code for our helper functions.
-It is really simple:
+In this case, our reducer just checks to make sure all results are identical.
 
 ```python
 def reducer(event, context):
@@ -120,3 +177,27 @@ new sfn.StateMachine(this, "clmath-standard", {
 });
 ```
 
+
+Finally, we invoke it using Python+Boto3:
+```
+client = boto3.client("stepfunctions")
+t1 = time()
+# Submit for execution
+response = client.start_execution(
+    stateMachineArn="arn:aws:states:ap-southeast-...",
+    input=json.dumps(payload),
+)
+arn = response["executionArn"]
+
+# Now poll until completion
+print(f"Running... ExecutionArn: {arn}")
+while True:
+    response = client.describe_execution(executionArn=arn)
+    status = response["status"]
+    if status != "RUNNING":
+        print(response)
+        break
+    sleep(1)
+t2 = time()
+print(f"Completed in {t2-t1} s")
+```
