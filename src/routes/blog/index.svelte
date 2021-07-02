@@ -1,20 +1,9 @@
 <script context="module">
-    export async function load({ error, status }) {
-        const posts = import.meta.glob('./posts/*.svx');
-        let body = [];
-        console.log(posts);
-        for (const path in posts) {
-            console.log(path);
-            let post = await posts[path]();
-            body.push({
-                metadata: post.metadata,
-                slug: path.replace('./posts/', '').replace('.svx', '')
-            });
-        }
-
+    export async function load({ error, status, fetch }) {
+        let res = await fetch('/blog/posts.json');
         return {
             props: {
-                body: body
+                body: await res.json()
             }
         };
     }
