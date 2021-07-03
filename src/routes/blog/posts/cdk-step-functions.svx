@@ -1,5 +1,5 @@
 ---
-title: Implementing MapReduce in AWS Step functions
+title: CDK Patterns - Step function MapReduce
 date: '2021-07-02'
 ---
 
