@@ -11,8 +11,7 @@
     </main>
     <footer>
         <span>
-            &copy; {new Date().getFullYear()} Jake Brown. Powered by
-            <a href="https://svelte.dev" target="_blank" rel="noopener">Svelte.</a>
+            &copy; {new Date().getFullYear()} Jake Brown
         </span>
     </footer>
 </div>
