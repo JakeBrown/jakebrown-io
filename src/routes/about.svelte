@@ -14,7 +14,7 @@
     </p>
 
     <p>
-        In 2012 I completed Honours in High Performance Computational Phyiscs at the University of
+        In 2012 I completed Honours in High Performance Computational Physics at the University of
         Adelaide. It's billed as
         <i>solving difficult Physics problems with supercomputers</i>
         . But for me, it was about trying to understand the world through mathematics and abstraction,
